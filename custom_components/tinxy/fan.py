@@ -58,7 +58,6 @@ class TinxySwitch(CoordinatorEntity, FanEntity):
         self.idx = idx
         self.coordinator = coordinator
         self.api = apidata
-        )
 
     @callback
     def _handle_coordinator_update(self) -> None:
