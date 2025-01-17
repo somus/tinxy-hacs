@@ -51,10 +51,6 @@ class TinxySwitch(CoordinatorEntity, FanEntity):
       available
 
     """
-    _attr_supported_features = (
-        FanEntityFeature.TURN_ON
-        | FanEntityFeature.TURN_OFF
-    )
 
     def __init__(self, coordinator, apidata, idx) -> None:
         """Pass coordinator to CoordinatorEntity."""
@@ -62,6 +58,10 @@ class TinxySwitch(CoordinatorEntity, FanEntity):
         self.idx = idx
         self.coordinator = coordinator
         self.api = apidata
+        self._attr_supported_features = (
+            FanEntityFeature.TURN_ON
+            | FanEntityFeature.TURN_OFF
+        )
 
     @callback
     def _handle_coordinator_update(self) -> None:
